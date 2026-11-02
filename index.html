@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Little Surprise For You!</title>
+<style>
+:root{--pink:#ffb8d0;--pink2:#ffe0eb;--yellow:#ffe89a;--purple:#c9b8ff;--ink:#49334d;--cream:#fff9ef}
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 15%,#fff 0 2px,transparent 3px),linear-gradient(135deg,#ffe7ef,#fff4cf 55%,#e8e0ff);background-size:34px 34px,auto;overflow-x:hidden}
+button,input,textarea{font:inherit} button{cursor:pointer;border:0}
+.wrap{width:min(920px,92vw);margin:0 auto;padding:28px 0 48px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.82rem;font-weight:900;letter-spacing:.08em}
+.pill{background:#fff9;border:2px solid #fff;padding:9px 14px;border-radius:99px;box-shadow:3px 4px 0 #49334d18}
+.card{position:relative;margin:30px auto 0;background:#fffdf8;border:3px solid white;border-radius:32px;box-shadow:0 18px 50px #754e6c22,8px 9px 0 #49334d17;padding:clamp(22px,5vw,52px);max-width:760px;overflow:hidden}
+h1{font-size:clamp(2.5rem,8vw,5rem);line-height:.98;margin:12px 0;color:#ec6f9d;text-align:center;text-shadow:3px 3px 0 #ffe1eb}
+h2{font-size:clamp(1.8rem,5vw,3rem);margin:10px 0;color:#d65f91}
+.center{text-align:center}.sub{font-size:1.08rem;line-height:1.65;max-width:540px;margin:14px auto;color:#765d78}
+.sticker{display:inline-block;background:var(--yellow);padding:8px 13px;border:2px solid white;border-radius:15px;transform:rotate(-4deg);font-weight:900;box-shadow:3px 4px 0 #49334d18}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#ff8fb6;color:#fff;padding:15px 23px;border-radius:18px;font-weight:900;box-shadow:0 6px 0 #d85f91;transition:.15s transform,.15s box-shadow;margin:12px 5px}
+.btn:hover{transform:translateY(-3px) rotate(-1deg);box-shadow:0 9px 0 #d85f91}.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #d85f91}
+.btn.alt{background:#9a82e8;box-shadow:0 6px 0 #7259c1}
+.hidden{display:none!important}
+.letter{background:#fff8e9;border:2px dashed #e8b6a5;border-radius:22px;padding:clamp(20px,4vw,36px);margin-top:22px;line-height:1.85;white-space:pre-wrap;font-size:1.05rem}
+.name{color:#d65f91;font-weight:900}
+.doodle{font-size:clamp(2rem,6vw,4rem);text-align:center;letter-spacing:10px;margin:10px 0;animation:bob 2.3s ease-in-out infinite}
+.float{position:fixed;pointer-events:none;z-index:0;animation:floatUp linear infinite;opacity:.7}
+@keyframes bob{50%{transform:translateY(-9px) rotate(5deg)}}
+@keyframes floatUp{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+@keyframes wiggle{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+.card{animation:pop .65s ease both}
+.tape{position:absolute;width:105px;height:28px;background:#ffe89a99;top:18px;left:-25px;transform:rotate(-35deg)}
+.spark{position:absolute;font-size:25px;animation:bob 2s infinite}
+footer{text-align:center;margin-top:22px;font-size:.8rem;color:#806b83}
+.admin{max-width:900px}.admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:20px}
+.qr-card{background:#fff;border:2px solid #f4dce6;border-radius:18px;padding:14px;text-align:center;overflow-wrap:anywhere}
+.qr-card img{width:150px;height:150px;display:block;margin:8px auto}
+.field{display:block;width:100%;border:2px solid #f0c8d7;border-radius:12px;padding:12px;margin:8px 0;background:white;color:var(--ink)}
+@media print{body{background:white}.top,.admin-intro{display:none}.card{box-shadow:none}.qr-card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div id="floaters"></div>
+<main class="wrap">
+ <div class="top"><span class="pill">✿ LITTLE MEMORY CLUB ✿</span><span class="pill" id="counter">A SPECIAL NOTE</span></div>
+ <section id="welcome" class="card center">
+  <span class="tape"></span><span class="spark" style="right:9%;top:14%">✦</span><span class="spark" style="left:8%;bottom:15%;animation-delay:.5s">♡</span>
+  <div class="doodle">🌈 🧸 💌</div>
+  <span class="sticker">HEY YOU!!</span>
+  <h1>Hiii, <span id="welcomeName">bestie</span>!</h1>
+  <p class="sub">There's a tiny little surprise waiting for you.<br>Made with a lot of love (and a little bit of chaos) ♡</p>
+  <div style="font-size:2rem;animation:wiggle 1.5s infinite">💌</div>
+  <button class="btn" id="openBtn">OPEN YOUR LETTER <span>♡</span></button>
+  <p style="font-size:.8rem;color:#a28aa0">psst... this page is specially made for you!</p>
+ </section>
+ <section id="letterPage" class="card hidden">
+  <div class="center"><span class="sticker">A LETTER JUST FOR YOU</span><div class="doodle">⭐ 🌷 🍒</div></div>
+  <h2>Dear <span id="letterName" class="name">you</span>,</h2>
+  <div id="message" class="letter"></div>
+  <div class="center" style="margin-top:18px"><div class="doodle">🫶 ✨ 💗</div><p class="sub">Thank you for being part of this story.</p><span class="sticker">YOU DID GREAT!</span></div>
+  <div class="center"><button class="btn alt" id="backBtn">↶ BACA LAGI DARI AWAL</button></div>
+ </section>
+ <section id="adminPage" class="card admin hidden">
+  <div class="center"><span class="sticker">QR CODE MAKER</span><h2>14 little surprises</h2><p class="sub admin-intro">Setelah website dipublikasikan, buka alamatnya dengan <b>?admin=1</b> untuk membuat QR tiap orang.</p></div>
+  <label>Alamat website yang sudah dipublikasikan
+   <input class="field" id="baseUrl" placeholder="https://username.github.io/nama-project/">
+  </label>
+  <button class="btn" id="makeQr">BUAT 14 QR CODE</button>
+  <div class="admin-grid" id="qrGrid"></div>
+  <p class="sub" style="font-size:.85rem">QR mengarah ke ?to=01 sampai ?to=14. Simpan/cetak tiap QR setelah muncul. Pastikan nama dan pesan sudah diedit di file sebelum dipublikasikan.</p>
+ </section>
+ <footer>made with ♡, confetti, and friendship</footer>
+</main>
+<script>
+// EDIT BAGIAN INI: ganti nama dan pesan setiap teman. Satu orang = satu QR (?to=01 ... ?to=14).
+const friends = [
+ {name:"TEH HANA", message:"ALOOO TEHHHH sebelumnya mau berterima kasih dulu karena uda mau nemenin di acara dari awal dari 0 banget, maaf karena selama ini bikin teteh pusing dan ngerasa gaenak dan banyak minta ini itu juga buat urusin mikroba. Tapi makasih karena mikrobanya jadi berhasil dan rame banget ternyata meskipun molor dikit but itsokay (˶ˆᗜˆ˵) makasi ya teh uda nyemangatin dan sering ngebelain juga pas lagi eval segala macem gitu lah maaf juga karena sering bingung dan gatau apa apa kalo lagi ditanya gitu padahal harusnya lebih paham (╥ ᴗ ╥) sekali lagi MAKASI BANGET uda bantuin dan mau direpotin selama harpang harpangan ini makasi ya teh uda mau jadi bagian acara nemenin sy >⩊<  "},
+ {name:"TEH ICUT", message:"ALOOO MY KOOR MENTOR sebelumnya mau berterima kasih karena uda mau nemenin di acara dari awall bangetttt, maaf karena selama ini sering gajelas dan bikin teteh ikutan bingung pas teteh nanyaaa. Tapi makasi ya teh karena uda mau ditanyain pas lagi bingung ini itu soal harpang taun lalu gimana la ini la itu la ◝(ᵔᵕᵔ)◜makasi juga uda nyemangatin dan sering ngebelain pas lagi eval segala macem gitu lah. Maaf lagi karena sering bingung dan gatau apa apa kalo lagi ditanya padahal harusnya tau (╥ ᴗ ╥) sekali lagi MAKASI BANGET uda bantuin dan mau direpotin selama harpang harpangan ini makasi ya teh uda mau jadi bagian acara nemenin sy (˶ᵔ ᵕ ᵔ˶)"},
+ {name:"TEH SHERYL", message:"ALOOO TEHHHHH sebelumnya mau berterima kasih karena uda mau ikut lagi jadi bagian acara harpang untuk kesekian kalinya HEHEHE, maaf karena selama ini banyak nanya juga pas taun lalu kayak gimana la ini la dan maaf karena kebanyakan gataunya (╥ ᴗ ╥) makasi uda sat set kelarin konsep lomba, makasi juga uda nyemangatin dan sering ngebelain pas lagi eval dan segala macemnya. Maaf lagi karena kebanyakan bingung dan gatau huhuhu. sekali lagi MAKASI BANGET ya teh uda mau gabung lagi di tahun ini dan uda mau direpotin selama harpang harpangan ini makasi ya teh uda mau gabung lagi jadi bagian acara nemenin sy (˶ˆᗜˆ˶) (nanti kirim aja foto sendiri buat ditempel difoto bareng teh :D) "},
+ {name:"KANG FAJAR", message:"ALOOOO KANG FAJARRR sebelumnya mau berterima kasih karena uda mau ikut jadi bagian dari harpang untuk kesekian kalinya HIHIHI, makasi uda ngebantuin buat kelarin konsep seminar dan rangkaian lainnya, maaf karena saya juga gajelas jadi sempet bikin betmut (╥ ᴗ ╥). Makasi juga karena uda nyemangatin selama ini dan ngebelain. Maaf lagi karena kebanyakan bingung dan gataunyaa jadi ujung ujungnya bentar kang bentar kang mulu :D. sekali lagi MAKASI BANGET ya kang uda mau gabung lagi di tahun ini dan mau direpotin selama harpang ini makasi kang uda mau gabung lagi jadi bagian acara nemenin sy ⚞^. .^⚟"},
+ {name:"KANG TAMA", message:"ALOOOO KANG TAMAAA sebelumnya mau berterima kasih karena uda mau nemenin di acara dari awall bangettt, maaf karena selama ini sering gajelas dan bikin bingung pas ditanya sesuatu. Tapi makasi karena uda ngonsepin bazar yang ternyata jadi wah dan peminatnya melebihi target gacor kang, makasi karena uda usahain dateng juga waktu bazar meskipun lagi sakit. sekali lagi MAKASI BANGET uda bantuin dan mau direpotin selama harpang harpangan ini makasi ya kang uda mau jadi bagian acara nemenin sy ദ്ദി˙∇˙)ว"},
+ {name:"JUN", message:"ALOOO JUNNN sebelumnya mau berterima kasih karena uda mau nemenin gw di acara dari awall banget ni dan makasi juga uda ngonsepin seminar gacor itu dari awal sampe akhir, makasi juga diakhir uda mau handle urusan onoh hwhwhw. Maaf karena gw sering bingung dan gatau pas ditanya padahal harusnya gw tau hal hal yg lu tanyain. Sekali lagi MAKASI BANGET uda mau nemenin dari awal banget sampe akhir dan uda mau direpotin selama harpang ini makasi uda mau jadi bagian acara nemenin gw ദ്ദി˙∇˙)ว. Thanks juga uda menjadi mc meskipun malah jd npd xixi (lu jangan ketawa lu dikasi ginian) (taun depan gabung lagi yak bantuin koor 26 WKWK)"},
+ {name:"DEVIA", message:"ALOOO DEVIAAA sebelumnya mau berterimakasih karena uda mau nemenin di acara dari awallll bangettt dan uda sering effort demi rapat doang jauh jauh dari cilegon itu wkwkwk, maaf ya karena selama ini sering gajelas gitu dan bikin bingung kalo lagi ditanya sesuatu. Tapi makasi banget karena uda ngonsepin bagi bagi makanann yang waw banget itu ternyata cepet juga abisnya gacor pokoknya, makasi juga karena uda mau jadi mc percobaan gw HAHAHAHA. Sekali lagi MAKASI BANGETTT uda mau nemenin dari awal banget harpang harpangan ini sampe akhir kelar tuntas makasi juga uda mau direpotin  dan selalu support makasi uda jadi bagian acara nemenin gw ദ്ദി˙∇˙)ว (taun depan gabung lagi yak bantuin koor 26 WKWK)"},
+ {name:"MARHAMAH", message:"ALOOO MARHAMAHHH sebelumnya mau berterimakasih karena uda milih acara jadi pilihan pas oprec hihihi, maaf karena selama ini sering gajelas dan bikin bingung pas ditanya tanya gitu, makasi uda mau bantuin teh icut dengan konsep lombanya ntuh, makasi uda sering support gw juga. Sekali lagi MAKASI BANGET uda milih acara sebagai pilihan lu dan uda ngejalanin sepenuh hati sampe akhir makasi juga karena uda mau sering direpotin, makasi uda jadi bagian acara nemenin gw ദ്ദി˙∇˙)ว (taun depan gabung lagi yak bantuin koor 26 WKWK)"},
+ {name:"ALWAN", message:"ALOOO ALWANNN sebelumnya mau berterimakasih karena uda mau ikut jadi bagian dari acara harpang lagi untuk kedua kalinya yak hehe, makasi uda bantuin gw buat ngerjain konsepan parade yg gw sendiri gatau wkwkwk, maaf karena gw sering gajelas dan sering bingung gitu kalo lagi ditanya. Makasi juga karena uda mau jadi my mc di bagi bagi makanan di sela sela kesibukan lu. Sekali lagi MAKASI BANGET karena uda bantuin dan mau direpotin selama harpang ini makasi uda mau gabung acara lagi nemenin gw ദ്ദി˙∇˙)ว (taun depan gabung lagi yak bantuin koor 26 WKWK)"},
+ {name:"RARA", message:"ALOOO RARAAA SANG ASPRAK BAIK sebelumnya mau erterimakasih karena uda mau ikut jadi bagian dari acara harpang lagi untuk kedua kalinya yak hehe, makasi uda bantuin buat ngonsepin seminar juga makasi juga uda mau jadi mc seminar dan gacor kali wak. Maaf karena gw sering gajelas dan sering bingung kalo ditanya. Sekali lagi MAKASI BANGET karena uda gabung lagi di taun ini dan mau direpotin selama harpang ini dan uda nemenin gw ദ്ദി˙∇˙)ว (taun depan gabung lagi yak bantuin koor 26 WKWK)"},
+ {name:"RADIT", message:"ALOOO RADITT MY ADIM sebelumnya mau berterimakasih karena uda mau ngejalanin harpang sebagai bagian dari acara meskipun bukan jadi pilihan mu pas awal daftar yak wkwk (klarifikasi bukan sy yg minta yak) maaf banget karena selama ini sering bikin pulang kemalemannn dan makasi juga uda mau jadi mc gacor euy lanjutkan bakatmu. Maaf ya karena sy sering gajelas dan banyak bingungnya kalo ditanyain sesuatu. Sekali lagi MAKASI BANGET uda mau ngejalanin jadi bagian acara sampe bener bener kelar makasi juga uda mau direpotin selama ini makasi la pokoknya uda gabung jadi bagian acara nemenin sy ദ്ദി˙∇˙)ว TAHUN DEPAN IKUT LAGI YA KALO BISA JADI KOOR DONG (ayo dit semangat bergerak jangan kelamaan nanti keburu diambil orang) "},
+ {name:"CIMEY", message:"ALOOO CIMEYYY sebelumnya mau berterimakasih karena uda mau ngejalanin harpang sebagai bagian dari acara meskipun bukan jadi pilihan mu pas awal daftar yak wkwk maaf banget selama ini sering bikin pulang kemaleman jugaaa dan makasi uda mau jadi mc buat rangkaian yg pertama (itu percobaan pertama sy ngajarin mc WKWK) tapi gokil keren terbaik. Maaf ya karena sering gajelas dan banyak bingungnya kalo ditanyain gituuuu. Sekali lagi MAKASI BANGET uda mau ngejalanin jadi bagian acara sampe tuntas meskipun gada di pilihanmu dari awal makasi juga uda mau direpotin selama ini makasi intinya karena uda jadi bagian acara nemenin sy (˶ᵔ ᵕ ᵔ˶) TAHUN DEPAN IKUT LAGI YA KALO BISA JADI KOOR DONG"},
+ {name:"ATA", message:"ALOOO ATAAA sebelumnya mau berterimakasih karena uda milih acara jadi pilihan mu pas awal oprec ya hihihi, maaf banget karena selama ini sering bikin pulang kemaleman jugaaa dan makasi juga uda mau bantuin seminarnya yang gacor itu, makasi juga uda mau jadi mc bazar yang dadakan ituuuu. Maaf ya karena sy sering gajelas dan banyak bingungnya kalo ditanyain sesuatu gitu. Sekali lagi MAKASI BANGET uda milih dan ngejalanin jadi bagian dari acara sepenuh hati sampe kelar makasi juga uda mau direpotin selama ini makasi pokoknya karena uda gabung jadi bagian acara nemenin sy (˶ˆᗜˆ˶) TAHUN DEPAN IKUT LAGI YA KALO BISA JADI KOOR DONG "},
+ {name:"ACA", message:"ALOOO ACAAA sebelumnya mau berterimakasih karena uda milih acara jadi pilihan mu pas awal oprec ya hihihi, maaf banget karena selama ini sering bikin pulang kemaleman dan makasi juga uda mau jadi my mc di bagi bagi makanan eaaa gokil banget pokok e. maaf ya karena sering gajelas dan banyak bingungnya kalo ditanyain sesuatu gitu.  Sekali lagi MAKASI BANGET uda mau ngejalanin jadi acara sepenuh hati sampe tuntas kelar makasi juga uda mau direpotin selama ini makasi lah intinya karena uda gabung jadi bagian acara nemenin sy (˶ˆᗜˆ˶) TAHUN DEPAN IKUT LAGI YA KALO BISA JADI KOOR DONG (uda damai kan sama ur bf WKWKWK jangan berantem berantem) "}
+];
+const params = new URLSearchParams(location.search);
+const admin = params.has("admin");
+const id = params.get("to") || "01";
+const idx = Math.max(0, Math.min(13, parseInt(id,10)-1 || 0));
+const friend = friends[idx];
+const $ = s => document.querySelector(s);
+function show(el){el.classList.remove("hidden")}
+function hide(el){el.classList.add("hidden")}
+for(let i=0;i<22;i++){const e=document.createElement("span");e.className="float";e.textContent=["♡","✦","✿","★","🌼","💗"][i%6];e.style.left=(Math.random()*100)+"vw";e.style.animationDuration=(9+Math.random()*13)+"s";e.style.animationDelay=(-Math.random()*18)+"s";e.style.fontSize=(14+Math.random()*18)+"px";$("#floaters").append(e)}
+if(admin){hide($("#welcome"));show($("#adminPage"));$("#counter").textContent="ADMIN / QR MAKER"}
+else{$("#welcomeName").textContent=friend.name;$("#letterName").textContent=friend.name;$("#message").textContent=friend.message;$("#counter").textContent=`A NOTE FOR ${friend.name.toUpperCase()}`}
+$("#openBtn").addEventListener("click",()=>{hide($("#welcome"));show($("#letterPage"));window.scrollTo({top:0,behavior:"smooth"})});
+$("#backBtn").addEventListener("click",()=>{hide($("#letterPage"));show($("#welcome"));window.scrollTo({top:0,behavior:"smooth"})});
+$("#makeQr").addEventListener("click",()=>{
+ const base=$("#baseUrl").value.trim().replace(/\/?$/,"/");
+ if(!/^https?:\/\//i.test(base)){alert("Masukkan alamat website publik yang diawali https://");return}
+ const grid=$("#qrGrid");grid.innerHTML="";
+ friends.forEach((f,i)=>{
+  const url=base+"?to="+String(i+1).padStart(2,"0");
+  const card=document.createElement("div");card.className="qr-card";
+  const title=document.createElement("b");title.textContent=f.name;
+  const img=document.createElement("img");img.alt="QR "+f.name;img.src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+encodeURIComponent(url);
+  const link=document.createElement("div");link.textContent=url;link.style.fontSize=".72rem";
+  const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";a.textContent="Tes halaman ↗";a.style.display="block";a.style.marginTop="8px";
+  card.append(title,img,link,a);grid.append(card);
+ });
+});
+</script>
+</body>
+</html>
