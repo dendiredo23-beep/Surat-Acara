@@ -42,16 +42,16 @@ footer{text-align:center;margin-top:22px;font-size:.8rem;color:#806b83}
 <body>
 <div id="floaters"></div>
 <main class="wrap">
- <div class="top"><span class="pill">✿ LITTLE MEMORY CLUB ✿</span><span class="pill" id="counter">A SPECIAL NOTE</span></div>
+ <div class="top"><span class="pill">✿ LITTLE THANKS LETTER ✿</span><span class="pill" id="counter">A SPECIAL NOTE</span></div>
  <section id="welcome" class="card center">
   <span class="tape"></span><span class="spark" style="right:9%;top:14%">✦</span><span class="spark" style="left:8%;bottom:15%;animation-delay:.5s">♡</span>
-  <div class="doodle">🌈 🧸 💌</div>
+  <div class="doodle">🦖🦖 🧸 🦑</div>
   <span class="sticker">HEY YOU!!</span>
   <h1>Hiii, <span id="welcomeName">bestie</span>!</h1>
-  <p class="sub">There's a tiny little surprise waiting for you.<br>Made with a lot of love (and a little bit of chaos) ♡</p>
-  <div style="font-size:2rem;animation:wiggle 1.5s infinite">💌</div>
+  <p class="sub">There's a little something I made just for you.<br>:D. </p>
+  <div style="font-size:2rem;animation:wiggle 1.5s infinite">🦖</div>
   <button class="btn" id="openBtn">OPEN YOUR LETTER <span>♡</span></button>
-  <p style="font-size:.8rem;color:#a28aa0">psst... this page is specially made for you!</p>
+  <p style="font-size:.8rem;color:#a28aa0">psst... this letter is specially made for you!</p>
  </section>
  <section id="letterPage" class="card hidden">
   <div class="center"><span class="sticker">A LETTER JUST FOR YOU</span><div class="doodle">⭐ 🌷 🍒</div></div>
@@ -74,7 +74,7 @@ footer{text-align:center;margin-top:22px;font-size:.8rem;color:#806b83}
 <script>
 // EDIT BAGIAN INI: ganti nama dan pesan setiap teman. Satu orang = satu QR (?to=01 ... ?to=14).
 const friends = [
- {name:"TEH HANA", message:"ALOOO TEHHHH sebelumnya mau berterima kasih dulu karena uda mau nemenin di acara dari awal dari 0 banget, maaf karena selama ini bikin teteh pusing dan ngerasa gaenak dan banyak minta ini itu juga buat urusin mikroba. Tapi makasih karena mikrobanya jadi berhasil dan rame banget ternyata meskipun molor dikit but itsokay (˶ˆᗜˆ˵) makasi ya teh uda nyemangatin dan sering ngebelain juga pas lagi eval segala macem gitu lah maaf juga karena sering bingung dan gatau apa apa kalo lagi ditanya gitu padahal harusnya lebih paham (╥ ᴗ ╥) sekali lagi MAKASI BANGET uda bantuin dan mau direpotin selama harpang harpangan ini makasi ya teh uda mau jadi bagian acara nemenin sy >⩊<  "},
+ {name:"TEH HANA", message:"ALOOO TEHHHH sebelumnya mau berterima kasih dulu karena uda mau nemenin di acara dari awal banget, maaf karena selama ini bikin teteh pusing dan ngerasa gaenak dan banyak minta ini itu juga buat urusin mikroba. Tapi makasih karena mikrobanya jadi berhasil dan rame banget ternyata meskipun molor dikit but itsokay (˶ˆᗜˆ˵) makasi ya teh uda nyemangatin dan sering ngebelain juga pas lagi eval segala macem gitu lah maaf juga karena sering bingung dan gatau apa apa kalo lagi ditanya gitu padahal harusnya lebih paham (╥ ᴗ ╥) sekali lagi MAKASI BANGET uda bantuin dan mau direpotin selama harpang harpangan ini makasi ya teh uda mau jadi bagian acara nemenin sy >⩊<  "},
  {name:"TEH ICUT", message:"ALOOO MY KOOR MENTOR sebelumnya mau berterima kasih karena uda mau nemenin di acara dari awall bangetttt, maaf karena selama ini sering gajelas dan bikin teteh ikutan bingung pas teteh nanyaaa. Tapi makasi ya teh karena uda mau ditanyain pas lagi bingung ini itu soal harpang taun lalu gimana la ini la itu la ◝(ᵔᵕᵔ)◜makasi juga uda nyemangatin dan sering ngebelain pas lagi eval segala macem gitu lah. Maaf lagi karena sering bingung dan gatau apa apa kalo lagi ditanya padahal harusnya tau (╥ ᴗ ╥) sekali lagi MAKASI BANGET uda bantuin dan mau direpotin selama harpang harpangan ini makasi ya teh uda mau jadi bagian acara nemenin sy (˶ᵔ ᵕ ᵔ˶)"},
  {name:"TEH SHERYL", message:"ALOOO TEHHHHH sebelumnya mau berterima kasih karena uda mau ikut lagi jadi bagian acara harpang untuk kesekian kalinya HEHEHE, maaf karena selama ini banyak nanya juga pas taun lalu kayak gimana la ini la dan maaf karena kebanyakan gataunya (╥ ᴗ ╥) makasi uda sat set kelarin konsep lomba, makasi juga uda nyemangatin dan sering ngebelain pas lagi eval dan segala macemnya. Maaf lagi karena kebanyakan bingung dan gatau huhuhu. sekali lagi MAKASI BANGET ya teh uda mau gabung lagi di tahun ini dan uda mau direpotin selama harpang harpangan ini makasi ya teh uda mau gabung lagi jadi bagian acara nemenin sy (˶ˆᗜˆ˶) (nanti kirim aja foto sendiri buat ditempel difoto bareng teh :D) "},
  {name:"KANG FAJAR", message:"ALOOOO KANG FAJARRR sebelumnya mau berterima kasih karena uda mau ikut jadi bagian dari harpang untuk kesekian kalinya HIHIHI, makasi uda ngebantuin buat kelarin konsep seminar dan rangkaian lainnya, maaf karena saya juga gajelas jadi sempet bikin betmut (╥ ᴗ ╥). Makasi juga karena uda nyemangatin selama ini dan ngebelain. Maaf lagi karena kebanyakan bingung dan gataunyaa jadi ujung ujungnya bentar kang bentar kang mulu :D. sekali lagi MAKASI BANGET ya kang uda mau gabung lagi di tahun ini dan mau direpotin selama harpang ini makasi kang uda mau gabung lagi jadi bagian acara nemenin sy ⚞^. .^⚟"},
@@ -111,9 +111,7 @@ $("#makeQr").addEventListener("click",()=>{
   const card=document.createElement("div");card.className="qr-card";
   const title=document.createElement("b");title.textContent=f.name;
   const img=document.createElement("img");img.alt="QR "+f.name;img.src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="+encodeURIComponent(url);
-  const link=document.createElement("div");link.textContent=url;link.style.fontSize=".72rem";
-  const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";a.textContent="Tes halaman ↗";a.style.display="block";a.style.marginTop="8px";
-  card.append(title,img,link,a);grid.append(card);
+card.append(title,img);grid.append(card);
  });
 });
 </script>
